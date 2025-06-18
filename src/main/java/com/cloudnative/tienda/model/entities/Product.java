@@ -24,7 +24,6 @@ public class Product {
 
   private String name;
   private String sku;
-  private String description;
   private Double price;
   private Boolean status;
 }

@@ -26,12 +26,12 @@ public class Receipt {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String code;
+  private String receiptNumber;
   private LocalDateTime issueDate;
   private Double totalAmount;
 
   @OneToOne
-  @JoinColumn(name = "order_id", unique = true)
-  private Order order;
+  @JoinColumn(name = "cart_id", unique = true)
+  private Cart cart;
 
 }

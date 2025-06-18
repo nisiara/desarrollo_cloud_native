@@ -1,7 +1,6 @@
 package com.cloudnative.tienda.model.dtos;
 
 import java.util.List;
-import com.cloudnative.tienda.model.entities.Receipt;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,9 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class OrderResponse {
+
+public class CartResponse {
   private Long id;
-  private String orderCode;
-  private List<OrderItemsResponse> orderItems;
-  private Receipt receipt;
+  // Si decides reintroducirlo en la entidad Cart
+  //private String cartCode; 
+  private List<CartItemResponse> cartItems; // Los ítems del carro detallados
+  private Long receiptId; // El ID de la boleta asociada
 }

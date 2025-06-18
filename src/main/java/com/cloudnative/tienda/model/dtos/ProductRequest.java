@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class ProductRequest {
   private String name;
   private String sku;
-  private String description;
   private Double price;
   private Boolean status;  
 

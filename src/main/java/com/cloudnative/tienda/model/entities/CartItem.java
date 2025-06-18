@@ -1,15 +1,11 @@
 package com.cloudnative.tienda.model.entities;
 
-
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,20 +18,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 @Entity
-@Table(name = "tbl_orders")
-public class Order {
+@Table(name = "tbl_cart_items")
+public class CartItem {
+  
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String orderCode;
+  private Integer quantity;
+  private Double price;
 
-  @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-  private List<OrderItem> orderItem;
+  @ManyToOne
+  @JoinColumn(name = "product_id")
+  private Product product;
 
-  @OneToOne(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-  private Receipt receipt;
-
-  
-
+  @ManyToOne
+  @JoinColumn(name = "cart_id")
+  private Cart cart;
 }
